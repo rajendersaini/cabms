@@ -1,7 +1,9 @@
 package org.opencab.web.controller;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -9,11 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class HomeController {
-	private static final Logger logger = Logger.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(HomeController.class);
 
-	@RequestMapping(value = "/")
-	public String home() {
-		logger.debug("HomeController: Passing through...");
-		return "home";
+	@RequestMapping("/")
+	public String velo(ModelMap model) {
+		return "hello_velocity";
 	}
+
 }

@@ -1,0 +1,2 @@
+<p>Here's a demonstration that Spring macros work with Tiles: #springUrl("/myUrl")</p>
+<p>Do Velocity tools work in Tile? $link.contextPath</p>

@@ -1,0 +1,6 @@
+#tiles_insertTemplate({"template":"template.vm"})
+  #tiles_putAttribute({"name":"title", "value": "Test Title"})#end
+  #tiles_putAttribute({"name":"body"})
+    #parse("body.vm")
+  #end
+#end

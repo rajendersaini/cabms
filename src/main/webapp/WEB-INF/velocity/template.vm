@@ -1,0 +1,8 @@
+<html>
+	<head><title>#tiles_insertAttribute({"name":"title"})#end</title></head>
+	<body>
+		#tiles_insertAttribute({"name":"body"})#end
+		<p>Spring macros work in tiles template, too: #springUrl("/myUrl")</p>
+		<p>Do Velocity tools work in template? $link.contextPath</p>
+	</body>
+</html>
