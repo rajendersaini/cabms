@@ -7,20 +7,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Vehicle {
-	@Id
-	@GeneratedValue
-	private Long id;
+public class Vehicle extends AbstractEntity{
+
 	private String make;
 	private Date Model;
 	private int capacity;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
+	
+	public Vehicle(){}
+	
+	public Vehicle(String make, Date model, int capacity) {
+		super();
+		this.make = make;
+		Model = model;
+		this.capacity = capacity;
 	}
 
 	public String getMake() {

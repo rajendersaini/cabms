@@ -8,21 +8,10 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.open.config.StandaloneDataConfig;
-import org.opencab.config.BeanConfig;
 import org.opencab.db.model.Vehicle;
 import org.opencab.exception.EntityNotFoundException;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
-@ActiveProfiles("test")
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = {
-		StandaloneDataConfig.class, BeanConfig.class })
-public class TestVehicleServiceImpl {
+public class TestVehicleServiceImpl extends BaseTest {
 
 	@Resource
 	private VehicleServiceImpl vehicleService;
@@ -44,7 +33,6 @@ public class TestVehicleServiceImpl {
 
 	private Vehicle getVehicle() {
 		Vehicle veh = new Vehicle();
-
 		veh.setCapacity(1);
 		veh.setMake("bmw");
 		veh.setModel(new Date("03/03/2012"));
@@ -54,20 +42,30 @@ public class TestVehicleServiceImpl {
 	@Test
 	public void testCreate() throws EntityNotFoundException {
 
-		Vehicle veh = getVehicle();
-		veh = vehicleService.create(veh);
-		Assert.assertNotNull(veh.getId());
+		Vehicle veh = vehicleService.create(getVehicle());
+		assertCreate(veh);
 		// delete
 		vehicleService.delete(veh.getId());
 
 	}
 
+	@Test(expected = IllegalArgumentException.class)
+	public void testCreateWithNull() {
+
+		vehicleService.create(null);
+	}
+
+	@Test(expected = EntityNotFoundException.class)
+	public void testDeleteWithNegativeId() throws EntityNotFoundException {
+		vehicleService.delete(new Long(-1));
+	}
+
 	@Test
 	public void testDelete() throws EntityNotFoundException {
 		vehicleService.delete(vehForDelete.getId());
-		
+
 		Vehicle veh = vehicleService.findById(vehForDelete.getId());
-		
+
 		Assert.assertNull(veh);
 
 	}
