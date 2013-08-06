@@ -2,8 +2,8 @@ package org.opencab.service;
 
 import org.junit.Assert;
 import org.junit.runner.RunWith;
-import org.open.config.StandaloneDataConfig;
 import org.opencab.config.BeanConfig;
+import org.opencab.config.StandaloneDataConfig;
 import org.opencab.db.model.AbstractEntity;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
