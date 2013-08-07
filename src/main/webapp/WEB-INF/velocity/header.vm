@@ -1,0 +1,16 @@
+<nav id="nav">	
+	<ul>		
+		<li>
+			<a href="javascript:void(0);"><span>Home</span></a>
+		</li>
+		<li>
+			<a href="javascript:void(0);"><span>Book</span></a>
+		</li>
+		<li>
+			<a href="javascript:void(0);"><span>About</span></a>
+		</li>
+		<li>
+			<a href="javascript:void(0);"><span>Contact</span></a>
+		</li>
+	</ul>
+</nav> 
