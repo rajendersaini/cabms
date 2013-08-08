@@ -1,0 +1,5 @@
+#tiles_insertTemplate({"template":"template.vm"})
+  #set($title="about.title")
+  #set($about=1)
+  #tiles_putAttribute({"name":"body", "value":"about us  page"})#end
+#end

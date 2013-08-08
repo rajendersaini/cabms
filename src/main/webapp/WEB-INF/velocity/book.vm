@@ -1,0 +1,5 @@
+#tiles_insertTemplate({"template":"template.vm"})
+  #set($title="book.title")
+  #set($book=1)
+  #tiles_putAttribute({"name":"body", "value":"booking page"})#end
+#end

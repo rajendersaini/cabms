@@ -1,0 +1,5 @@
+#tiles_insertTemplate({"template":"template.vm"})
+  #set($title="contact.title")
+  #set($contact=1)
+  #tiles_putAttribute({"name":"body", "value":"contact us  page"})#end
+#end

@@ -5,13 +5,13 @@
 			<a href="$link.contextPath"><span>#if($home==1)<u>#end #springMessage('menu.home') #if($home==1)</u>#end</span></a>
 		</li>
 		<li>
-			<a href="$link.contextPath/book"><span>#springMessage('menu.book')</span></a>
+			<a href="$link.contextPath/book"><span>#if($book==1)<u>#end #springMessage('menu.book') #if($book==1)</u>#end</span></a>
 		</li>
 		<li>
-			<a href="$link.contextPath/about"><span>#springMessage('menu.about')</span></a>
+			<a href="$link.contextPath/about"><span>#if($about==1)<u>#end #springMessage('menu.about') #if($about==1)</u>#end</span></a>
 		</li>
 		<li>
-			<a href="$link.contextPath/contact"><span>#springMessage('menu.contact')</span></a>
+			<a href="$link.contextPath/contact"><span>#if($contact==1)<u>#end #springMessage('menu.contact') #if($contact==1)</u>#end</span></a>
 		</li>
 	</ul>
 </nav> 
