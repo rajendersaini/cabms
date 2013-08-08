@@ -1,9 +1,7 @@
 package org.opencab.config;
 
 import java.util.Locale;
-
 import javax.annotation.Resource;
-
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
