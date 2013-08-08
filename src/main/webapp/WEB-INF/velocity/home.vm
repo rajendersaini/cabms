@@ -1,5 +1,6 @@
 
 #tiles_insertTemplate({"template":"template.vm"})
-  #tiles_putAttribute({"name":"title", "value": "Test Title"})#end
+  #set($title="home.title")
+  #set($home=1)
   #tiles_putAttribute({"name":"body", "value":"hello"})#end
 #end

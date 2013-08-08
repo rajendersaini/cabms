@@ -16,7 +16,7 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public String velo(ModelMap model) {
-		return "hello_velocity";
+		return "home";
 	}
 
 }

@@ -5,8 +5,6 @@
 		#parse("header.vm")
 		#tiles_insertAttribute({"name":"body"})#end
 		#parse("content.vm")
-		<p>Spring macros work in tiles template, too: #springUrl("/myUrl")</p>
-		<p>Do Velocity tools work in template? $link.contextPath</p>
 		#parse("footer.vm")	
 	</div>	
 	</body>

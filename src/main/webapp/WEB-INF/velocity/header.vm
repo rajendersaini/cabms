@@ -1,16 +1,17 @@
 <nav id="nav">	
 	<ul>		
+	
 		<li>
-			<a href="javascript:void(0);"><span>Home</span></a>
+			<a href="$link.contextPath"><span>#if($home==1)<u>#end #springMessage('menu.home') #if($home==1)</u>#end</span></a>
 		</li>
 		<li>
-			<a href="javascript:void(0);"><span>Book</span></a>
+			<a href="$link.contextPath/book"><span>#springMessage('menu.book')</span></a>
 		</li>
 		<li>
-			<a href="javascript:void(0);"><span>About</span></a>
+			<a href="$link.contextPath/about"><span>#springMessage('menu.about')</span></a>
 		</li>
 		<li>
-			<a href="javascript:void(0);"><span>Contact</span></a>
+			<a href="$link.contextPath/contact"><span>#springMessage('menu.contact')</span></a>
 		</li>
 	</ul>
 </nav> 
