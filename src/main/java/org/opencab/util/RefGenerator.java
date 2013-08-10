@@ -20,7 +20,6 @@ public class RefGenerator {
 
 	private DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
 
-
 	private RefGenerator() {
 	}
 
@@ -30,9 +29,10 @@ public class RefGenerator {
 
 	public String genRef() {
 
-		String ref  =dateFormat.format(new Date()) + "-" + new Random().nextInt(9999); 
+		String ref = dateFormat.format(new Date()) + "-"
+				+ String.format("%04d", new Random().nextInt(9999));
 
-		logger.warn("Generated ref - " + ref);
+		logger.debug("Generated ref - " + ref);
 		return ref;
 	}
 

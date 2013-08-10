@@ -2,19 +2,21 @@ package org.opencab.db.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.engine.profile.Fetch;
-
 @Entity
 @Table(name = "cabuser")
 public class User extends AbstractEntity {
 
+	@Column(length=NAME_LEN)
 	private String firstName;
+	@Column(length=NAME_LEN)
 	private String middleName;
+	@Column(length=NAME_LEN)
 	private String lastName;
 	@OneToMany(orphanRemoval = true)
 	@JoinColumn(name="cabuser_id")

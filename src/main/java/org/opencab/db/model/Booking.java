@@ -5,6 +5,9 @@ import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.PrePersist;
+
+import org.opencab.util.RefGenerator;
 
 @Entity
 public class Booking extends AbstractEntity {
@@ -13,16 +16,16 @@ public class Booking extends AbstractEntity {
 		CREATED, PROCESSING, CONFIRMED, CANCELLED, HOLD
 	}
 
-	@Embedded	
+	@Embedded
 	private Address start;
 
 	@AttributeOverrides({
-	@AttributeOverride(column = @Column(name="end_line1"), name = "line1"),
-	@AttributeOverride(column = @Column(name="end_line2"), name = "line2"),
-	@AttributeOverride(column = @Column(name="end_city"), name = "city"),
-	@AttributeOverride(column = @Column(name="end_state"), name = "state"),
-	@AttributeOverride(column = @Column(name="end_country"), name = "country"),
-	@AttributeOverride(column = @Column(name="end_zip"), name = "zip")})
+			@AttributeOverride(column = @Column(name = "end_line1", length = ADDRESS_LEN), name = "line1"),
+			@AttributeOverride(column = @Column(name = "end_line2", length = ADDRESS_LEN), name = "line2"),
+			@AttributeOverride(column = @Column(name = "end_city", length = CITY_LEN), name = "city"),
+			@AttributeOverride(column = @Column(name = "end_state", length = STATE_LEN), name = "state"),
+			@AttributeOverride(column = @Column(name = "end_country", length = COUNTRY_LEN), name = "country"),
+			@AttributeOverride(column = @Column(name = "end_zip", length = ZIP_LEN), name = "zip") })
 	@Embedded
 	private Address end;
 
@@ -52,9 +55,16 @@ public class Booking extends AbstractEntity {
 
 	private Status status;
 
+	@PrePersist
+	protected void onBooking() {
+		ref = RefGenerator.getInstance().genRef();
+	}
+
+	private String ref;
+
 	public String getRef() {
 
-		return null;
+		return ref;
 	}
 
 }
