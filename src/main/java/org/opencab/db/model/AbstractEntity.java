@@ -2,7 +2,6 @@ package org.opencab.db.model;
 
 import java.util.Date;
 
-import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,18 +10,33 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.persistence.Version;
 
 @MappedSuperclass
 public abstract class AbstractEntity {
 
+	@Transient
+	public static final int NAME_LEN = 35;
+	@Transient
+	public static final int ADDRESS_LEN = NAME_LEN;
+	@Transient
+	public static final int CITY_LEN = NAME_LEN;
+	@Transient
+	public static final int STATE_LEN = NAME_LEN;
+
+	@Transient
+	public static final int COUNTRY_LEN = NAME_LEN;
+	@Transient
+	public static final int ZIP_LEN = 10;
+
 	@Id
 	@GeneratedValue
 	private Long id;
-	
+
 	@Version
-    private Long version;
-	
+	private Long version;
+
 	public Long getVersion() {
 		return version;
 	}

@@ -19,7 +19,8 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 @Configuration
 @Profile("test")
-@PropertySource("classpath:hibernate-test.properties")
+@PropertySource(  { "classpath:hibernate-test.properties",
+		"classpath:app-test.properties" })
 @EnableJpaRepositories("org.opencab.db.repository")
 public class StandaloneDataConfig implements DataConfig {
 

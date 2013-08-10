@@ -1,17 +1,28 @@
 package org.opencab.db.model;
 
-import javax.persistence.Entity;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
-@Entity
-public class Address extends AbstractEntity {
+@Embeddable
+public class Address {
+
+	@Column(nullable = false, length = AbstractEntity.ADDRESS_LEN)
 	private String line1;
+	@Column(length = AbstractEntity.ADDRESS_LEN)
 	private String line2;
+	@Column(nullable = false, length = AbstractEntity.CITY_LEN)
 	private String city;
+	@Column(nullable = false, length = AbstractEntity.STATE_LEN)
 	private String state;
+	@Column(nullable = false, length = AbstractEntity.COUNTRY_LEN)
 	private String country;
+	@Column(nullable = false, length = AbstractEntity.ZIP_LEN)
 	private String zip;
 
-	public Address(){}
+	public Address() {
+
+	}
+
 	public Address(String line1, String line2, String city, String state,
 			String country, String zip) {
 		this.line1 = line1;
@@ -21,7 +32,6 @@ public class Address extends AbstractEntity {
 		this.country = country;
 		this.zip = zip;
 	}
-
 
 	public String getLine1() {
 		return line1;

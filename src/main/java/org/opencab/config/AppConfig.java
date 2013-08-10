@@ -1,14 +1,18 @@
 package org.opencab.config;
 
 import java.util.Locale;
+
 import javax.annotation.Resource;
+
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
@@ -25,6 +29,7 @@ import org.springframework.web.servlet.view.velocity.VelocityViewResolver;
 @Configuration
 @EnableWebMvc
 @Profile("prod")
+@PropertySource("classpath:app.properties")
 @ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = {
 		JndiDataConfig.class, BeanConfig.class })
 public class AppConfig implements ApplicationContextAware {
@@ -46,7 +51,7 @@ public class AppConfig implements ApplicationContextAware {
 	public ReloadableResourceBundleMessageSource messageSource() {
 		ReloadableResourceBundleMessageSource rrbms = new ReloadableResourceBundleMessageSource();
 		rrbms.setBasename("classpath:messages");
-		rrbms.setDefaultEncoding("UTF-8");
+
 		return rrbms;
 	}
 	
@@ -54,7 +59,8 @@ public class AppConfig implements ApplicationContextAware {
 	
 	public LocaleChangeInterceptor localeChangeInterceptor(){
 		LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
-			lci.setParamName("lang");
+			lci.setParamName("language");
+			
 		return lci;
 	}
 	
@@ -76,6 +82,7 @@ public class AppConfig implements ApplicationContextAware {
 		
 		return dahm;
 	}
+	
 
 	@Bean
 	public ViewResolver viewResolver() {
