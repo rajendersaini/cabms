@@ -1,12 +1,20 @@
-	<footer>
+	<footer >
 			<article class="col_pad_left2">
-				<h5>Follow Us</h5>
-				<ul class="icons">
-					<li><a href="#"><img src="images/icon1.jpg" alt="">Facebook</a></li>
-					<li><a href="#"><img src="images/icon2.jpg" alt="">Stumleupon</a></li>
-					<li><a href="#"><img src="images/icon3.jpg" alt="">Twitter</a></li>
-					<li><a href="#"><img src="images/icon4.jpg" alt="">Digg</a></li>
-					<li><a href="#"><img src="images/icon5.jpg" alt="">RSS Feed</a></li>
+				<h5>Follow Us</h5>				
+				<table class="icons" >
+				  <tbody>
+    				<tr>
+      					<td><a href="#"><img src="images/icon1.jpg" alt=""></a></td>
+      					<td><a href="#">Facebook</a></td>
+      					<td><a href="#"><img src="images/icon2.jpg" alt=""></a></td>
+      					<td><a href="#">Stumleupon</a></td>
+      					<td><a href="#"><img src="images/icon3.jpg" alt=""></a></td>
+      					<td><a href="#">Twitter</a></td>
+      					<td><a href="#"><img src="images/icon4.jpg" alt=""></a></td>
+      					<td><a href="#">Digg</a></td>
+    				</tr>
+  				   </tbody>
+    			 </table>
 				</table>
 			</article>
 		</div>

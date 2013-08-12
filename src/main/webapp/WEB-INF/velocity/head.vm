@@ -3,6 +3,7 @@
   <title> #springMessage($title)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="css/main.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/forms.css" type="text/css" media="all">
   <link rel="shortcut icon" href="images/logo.jpg">
   
 </head>

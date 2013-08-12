@@ -3,8 +3,7 @@
 	<body id="page1">
 	<div class="main">
 		#parse("header.vm")
-		#tiles_insertAttribute({"name":"body"})#end
-		#parse("content.vm")
+		#parse($content)
 		#parse("footer.vm")	
 	</div>	
 	</body>
