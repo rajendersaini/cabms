@@ -12,7 +12,6 @@ body {
 	background-image: -ms-radial-gradient(50% 100%, #dddddd, #333333);
 	background-image: radial-gradient(50% 100%, #dddddd, #333333);
 	color: #fff;
-	overflow: hidden;
 	height: 100%;
 	-webkit-text-size-adjust: 100%;
 	/* Stops Mobile Safari from auto-adjusting font-sizes */

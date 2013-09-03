@@ -65,14 +65,51 @@ input.error {
 }
 
 em.error {
-  background:url("images/unchecked.gif") no-repeat 0px 0px;
-  padding-left: 30px;
-  color: #FF3333;
-  text-shadow: #FF3333 0.1em 0.1em 0.2em;
+	background: url("images/unchecked.gif") no-repeat 0px 0px;
+	padding-left: 30px;
+	color: #FF3333;
+	text-shadow: #FF3333 0.1em 0.1em 0.2em;
 }
+
 em.success {
-  background:url("images/chk.gif") no-repeat 0px 0px;
-  padding-left: 16px;
-  color:green;
-  text-shadow: green 0.1em 0.1em 0.2em;
+	background: url("images/chk.gif") no-repeat 0px 0px;
+	padding-left: 16px;
+	color: green;
+	text-shadow: green 0.1em 0.1em 0.2em;
 }
+
+#bookingtabs {
+	width: 1200;
+}
+
+.ui-widget-header {
+	border: 0;
+	background: #0f6fb2;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; border :
+	1px solid #ccc; font-size : 20px;
+	color: blue;
+	background-color: #0f6fb2;
+	border: 1px solid #ccc;
+	font-size: 20px;
+}
+
+.ui-widget-content {
+	border: 1px solid #aaaaaa;
+	background: #ffffff none;
+	background-color: #dddddd;
+	
+}
+
+.ui-state-default,.ui-widget-content .ui-state-default {
+	background: #a2a2a2 none;
+	border: 1px solid #636363;
+	color: #0f6fb2
+}
+
+/*
+.ui-state-active,.ui-widget-content .ui-state-active {
+	background: #ffffff none;
+	border: 1px solid #aaaaaa;
+	color: #0f6fb2
+}
+*/
