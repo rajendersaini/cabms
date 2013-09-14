@@ -1,0 +1,23 @@
+Instructions to setup build on ubuntu 64 bit
+1) Install open jdk on ubuntu using command 
+   sudo apt-get install open-jdk-7-jdk
+2) Install maven using following command
+   sudo apt-get install maven2
+   
+3) install git 
+   sudo apt-get install git
+
+4) download source code 
+   git clone https://github.com/rajendersaini/cabms.git
+
+5) downlaod and uncompress eclipse latest jee version 
+
+6) move to cams directory cloned using git clone command 
+   execute mvn eclipse:eclipse command to download dependencies 
+7) import generated eclipse project into eclipse using import exiting 
+   project command into eclipse. 
+   
+   
+   
+
+
