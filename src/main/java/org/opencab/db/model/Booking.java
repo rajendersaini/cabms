@@ -5,7 +5,9 @@ import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
+import javax.validation.constraints.NotNull;
 
 import org.opencab.util.RefGenerator;
 
@@ -28,6 +30,18 @@ public class Booking extends AbstractEntity {
 			@AttributeOverride(column = @Column(name = "end_zip", length = ZIP_LEN), name = "zip") })
 	@Embedded
 	private Address end;
+
+	@NotNull
+	@ManyToOne
+	private User bookedBy;
+
+	public User getBookedBy() {
+		return bookedBy;
+	}
+
+	public void setBookedBy(User bookedBy) {
+		this.bookedBy = bookedBy;
+	}
 
 	public Address getStart() {
 		return start;

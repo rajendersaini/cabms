@@ -12,8 +12,9 @@ Instructions to setup build on ubuntu 64 bit
 
 5) downlaod and uncompress eclipse latest jee version 
 
-6) move to cams directory cloned using git clone command 
+6) move to cabms directory cloned using git clone command 
    execute mvn eclipse:eclipse command to download dependencies 
+   
 7) import generated eclipse project into eclipse using import exiting 
    project command into eclipse. 
    

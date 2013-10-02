@@ -2,18 +2,32 @@ package org.opencab.service;
 
 import javax.annotation.Resource;
 
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.opencab.db.model.Address;
 import org.opencab.db.model.Booking;
+import org.opencab.db.model.User;
+import org.opencab.exception.EntityNotFoundException;
 
 public class TestBookingServiceImpl extends BaseTest {
 
 	@Resource
-	BookingServiceImpl bookingService;
+	private BookingServiceImpl bookingService;
+
+	@Resource
+	private UserServiceImpl userService;
+
+	private User user = new User("gp", "k", "saini", null);
+
+	@Before
+	public void setup() {
+		userService.create(user);
+	}
 
 	@Test
-	public void testCreate() {
+	public void testCreate() throws EntityNotFoundException {
 
 		Booking booking = new Booking();
 
@@ -24,14 +38,21 @@ public class TestBookingServiceImpl extends BaseTest {
 
 		booking.setStart(start);
 		booking.setEnd(end);
+		booking.setBookedBy(user);
 		Booking bookingSaved = bookingService.create(booking);
 		Assert.assertNotNull(bookingSaved);
 		Assert.assertEquals("60640", bookingSaved.getEnd().getZip());
 
 		Assert.assertNotNull(bookingSaved.getRef());
-		Assert.assertEquals(13,bookingSaved.getRef().length());
+		Assert.assertEquals(13, bookingSaved.getRef().length());
 		
+		bookingService.delete(bookingSaved.getId());
 
+	}
+
+	@After
+	public void tearDown() throws EntityNotFoundException {
+		userService.delete(user.getId());
 	}
 
 }

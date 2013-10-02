@@ -9,10 +9,11 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<spring.version>3.1.1.RELEASE</spring.version>
+		<spring.version>3.2.1.RELEASE</spring.version>
 		<jdk.version>1.6</jdk.version>
 		<servlet-api-version>3.0.1</servlet-api-version>
 		<hibernate-version>4.1.5.SP1</hibernate-version>
+		<springwebflow-version>2.3.2.RELEASE</springwebflow-version>
 	</properties>
 
 	<dependencies>
@@ -27,6 +28,11 @@
 			<groupId>cglib</groupId>
 			<artifactId>cglib</artifactId>
 			<version>2.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.webflow</groupId>
+			<artifactId>spring-webflow</artifactId>
+			<version>${springwebflow-version}</version>
 		</dependency>
 
 		<dependency>
@@ -165,12 +171,8 @@
 			<version>2.0</version>
 		</dependency>
 
-		<!--  <dependency>
-			<groupId>javax.el</groupId>
-			<artifactId>el-api</artifactId>
-			<version>2.2</version>
-			<scope>provided</scope>
-		</dependency> -->
+		<!-- <dependency> <groupId>javax.el</groupId> <artifactId>el-api</artifactId> 
+			<version>2.2</version> <scope>provided</scope> </dependency> -->
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-request-api</artifactId>
