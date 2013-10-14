@@ -1,0 +1,7 @@
+1) In current iteration we are planning to put basic functionality in place, like
+
+	a) Book a cab, update, delete booking.
+	b) Register, update, delete a vehicle. 
+	c) Register, update, delete a user.
+
+	 
