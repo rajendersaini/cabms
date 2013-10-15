@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
@@ -41,6 +40,7 @@ public class AppConfig implements ApplicationContextAware {
 	@Bean
 	public VelocityConfig velocityConfig() {
 		VelocityConfigurer cfg = new VelocityConfigurer();
+		
 		cfg.setResourceLoaderPath("/WEB-INF/velocity");
 		cfg.setConfigLocation(context
 				.getResource("classpath:velocity.properties"));
