@@ -13,6 +13,7 @@ import org.opencab.util.RefGenerator;
 
 @Entity
 public class Booking extends AbstractEntity {
+	private static final long serialVersionUID = 9209066302689686295L;
 
 	private enum Status {
 		CREATED, PROCESSING, CONFIRMED, CANCELLED, HOLD

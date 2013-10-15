@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 
 @Entity
 public class UserAddress extends AbstractEntity {
+	private static final long serialVersionUID = 2575744316494765125L;
 
 	public Address getAddress() {
 		return address;

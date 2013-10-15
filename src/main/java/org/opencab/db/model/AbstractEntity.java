@@ -1,5 +1,6 @@
 package org.opencab.db.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -14,8 +15,9 @@ import javax.persistence.Transient;
 import javax.persistence.Version;
 
 @MappedSuperclass
-public abstract class AbstractEntity {
+public abstract class AbstractEntity implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	@Transient
 	public static final int NAME_LEN = 35;
 	@Transient
@@ -29,7 +31,8 @@ public abstract class AbstractEntity {
 	public static final int COUNTRY_LEN = NAME_LEN;
 	@Transient
 	public static final int ZIP_LEN = 10;
-
+	@Transient
+	public static final int PASSWORDHASH_LEN = 250;
 	@Id
 	@GeneratedValue
 	private Long id;

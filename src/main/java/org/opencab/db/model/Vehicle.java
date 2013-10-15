@@ -3,18 +3,17 @@ package org.opencab.db.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @Entity
-public class Vehicle extends AbstractEntity{
-
+public class Vehicle extends AbstractEntity {
+	private static final long serialVersionUID = -8264185412746945007L;
 	private String make;
 	private Date Model;
 	private int capacity;
-	
-	public Vehicle(){}
-	
+
+	public Vehicle() {
+	}
+
 	public Vehicle(String make, Date model, int capacity) {
 		super();
 		this.make = make;

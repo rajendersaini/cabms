@@ -19,7 +19,7 @@ public class TestBookingServiceImpl extends BaseTest {
 	@Resource
 	private UserServiceImpl userService;
 
-	private User user = new User("gp", "k", "saini", null);
+	private User user = getUser();
 
 	@Before
 	public void setup() {
