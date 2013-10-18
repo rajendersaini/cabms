@@ -6,6 +6,8 @@ import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 import org.hibernate.ejb.HibernatePersistence;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -23,11 +25,16 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 @EnableJpaRepositories("org.opencab.db.repository")
 public class JndiDataConfig implements DataConfig {
 
+	private static final Logger logger = LoggerFactory
+			.getLogger(JndiDataConfig.class);
+
 	@Resource
 	private Environment env;
 
 	@Bean
 	public DataSource dataSource() {
+
+		logger.debug("Configuring data source");
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
 		dataSource.setDriverClassName(env
@@ -72,6 +79,7 @@ public class JndiDataConfig implements DataConfig {
 
 	@Bean
 	public JpaTransactionManager transactionManager() {
+		logger.debug("Configuring transactionManager");
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
 		transactionManager.setEntityManagerFactory(entityManagerFactory()
 				.getObject());

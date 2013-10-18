@@ -1,0 +1,4 @@
+#tiles_insertTemplate({"template":"template.vm"})
+  #set($title="login.title")
+  #set($content="../forms/loginform.html")
+ #end

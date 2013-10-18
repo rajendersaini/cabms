@@ -1,5 +1,5 @@
 #tiles_insertTemplate({"template":"template.vm"})
   #set($title="book.title")
   #set($book=1)
-  #set($content="site/forms/booking.html")
+  #set($content="../forms/booking.html")
 #end

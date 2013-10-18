@@ -2,7 +2,7 @@
 	<ul>		
 	
 		<li>
-			<a href="$link.contextPath"><span>#if($home==1)<u>#end #springMessage('menu.home') #if($home==1)</u>#end</span></a>
+			<a href="$link.contextPath/home"><span>#if($home==1)<u>#end #springMessage('menu.home') #if($home==1)</u>#end</span></a>
 		</li>
 		<li>
 			<a href="$link.contextPath/book"><span>#if($book==1)<u>#end #springMessage('menu.book') #if($book==1)</u>#end</span></a>

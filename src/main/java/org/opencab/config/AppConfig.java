@@ -4,6 +4,8 @@ import java.util.Locale;
 
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -13,7 +15,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
-import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
@@ -34,6 +35,10 @@ import org.springframework.web.servlet.view.velocity.VelocityViewResolver;
 @PropertySource("classpath:app.properties")
 public class AppConfig extends WebMvcConfigurerAdapter implements
 		ApplicationContextAware {
+
+	private static final Logger logger = LoggerFactory
+			.getLogger(AppConfig.class);
+
 	@Resource
 	private Environment env;
 
@@ -41,6 +46,9 @@ public class AppConfig extends WebMvcConfigurerAdapter implements
 
 	@Bean
 	public VelocityConfig velocityConfig() {
+
+		logger.debug("Configuring velocity engine");
+
 		VelocityConfigurer cfg = new VelocityConfigurer();
 
 		cfg.setResourceLoaderPath("/WEB-INF/velocity");
@@ -51,16 +59,8 @@ public class AppConfig extends WebMvcConfigurerAdapter implements
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/css/**")
-				.addResourceLocations("/WEB-INF/velocity/site/css/")
-				.setCachePeriod(31556926);
-		registry.addResourceHandler("/images/**")
-				.addResourceLocations("/WEB-INF/velocity/site/images/")
-				.setCachePeriod(31556926);
-		registry.addResourceHandler("/js/**")
-				.addResourceLocations("/WEB-INF/velocity/site/js/")
-				.setCachePeriod(31556926);
-		registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+		logger.debug("Configuring web resources");
+		ResourceConfig.addResourceHandlers(registry);
 	}
 
 	@Bean
@@ -95,9 +95,13 @@ public class AppConfig extends WebMvcConfigurerAdapter implements
 
 	@Bean
 	public ViewResolver viewResolver() {
+
+		logger.debug("Setting up velocity view resolver");
+
 		VelocityViewResolver resolver = new VelocityViewResolver();
 		resolver.setViewClass(MyVelocityToolboxView.class);
 		resolver.setSuffix(".vm");
+		resolver.setExposeSpringMacroHelpers(true);
 		return resolver;
 	}
 
