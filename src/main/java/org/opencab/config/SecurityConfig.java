@@ -40,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		logger.debug("configure http security");
 
-		http.authorizeUrls()
+		http.authorizeRequests()
 				.antMatchers(LoginController.AUTHLOGIN,
 						ResourceConfig.RESOURCE_PATH_MATCHER).permitAll()
 				.anyRequest().authenticated().and().formLogin()
