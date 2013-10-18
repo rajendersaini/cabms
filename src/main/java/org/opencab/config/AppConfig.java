@@ -87,12 +87,7 @@ public class AppConfig extends WebMvcConfigurerAdapter implements
 		return clr;
 	}
 
-	@Override
-	public void configureDefaultServletHandling(
-			DefaultServletHandlerConfigurer configurer) {
-		configurer.enable();
-	}
-
+	
 	@Bean
 	public ViewResolver viewResolver() {
 

@@ -4,13 +4,13 @@
 		<table class="icons">
 			<tbody>
 				<tr>
-					<td><a href="#"><img src="/images/icon1.jpg" alt=""></a></td>
+					<td><a href="#"><img src="$link.contextPath/resources/images/icon1.jpg" alt=""></a></td>
 					<td><a href="#">Facebook</a></td>
-					<td><a href="#"><img src="/images/icon2.jpg" alt=""></a></td>
+					<td><a href="#"><img src="$link.contextPath/resources/images/icon2.jpg" alt=""></a></td>
 					<td><a href="#">Stumleupon</a></td>
-					<td><a href="#"><img src="/images/icon3.jpg" alt=""></a></td>
+					<td><a href="#"><img src="$link.contextPath/resources/images/icon3.jpg" alt=""></a></td>
 					<td><a href="#">Twitter</a></td>
-					<td><a href="#"><img src="/images/icon4.jpg" alt=""></a></td>
+					<td><a href="#"><img src="$link.contextPath/resources/images/icon4.jpg" alt=""></a></td>
 					<td><a href="#">Digg</a></td>
 				</tr>
 			</tbody>

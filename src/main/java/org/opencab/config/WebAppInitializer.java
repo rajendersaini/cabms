@@ -3,9 +3,11 @@ package org.opencab.config;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
+import org.springframework.core.annotation.Order;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+@Order(1)
 public class WebAppInitializer extends
 		AbstractAnnotationConfigDispatcherServletInitializer {
 
@@ -18,7 +20,7 @@ public class WebAppInitializer extends
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class<?>[] {  SecurityConfig.class };
+		return new Class<?>[] { AppConfig.class };
 	}
 
 	@Override
@@ -26,18 +28,12 @@ public class WebAppInitializer extends
 		return new String[] { "/*" };
 	}
 
-	@Override
-	protected void registerDispatcherServlet(ServletContext servletContext) {
-		super.registerDispatcherServlet(servletContext);
-
-		servletContext.addListener(new HttpSessionEventPublisher());
-
-	}
-
+	
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class<?>[] { AppConfig.class};
+		return new Class<?>[] { SecurityConfig.class };
 
 	}
+
 
 }

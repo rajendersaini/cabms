@@ -11,7 +11,7 @@ public class ResourceConfig {
 			.getLogger(ResourceConfig.class);
 	public static final String RESOURCE_PATH_MATCHER = "/resources/**";
 
-	public static final String RESOURCE_PATH = "/WEB-INF/resources";
+	public static final String RESOURCE_PATH = "/WEB-INF/resources/";
 
 	public static void addResourceHandlers(ResourceHandlerRegistry registry) {
 		logger.debug("Configuring web resources");
