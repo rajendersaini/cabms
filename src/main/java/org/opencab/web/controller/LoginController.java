@@ -1,7 +1,11 @@
 package org.opencab.web.controller;
 
+import javax.validation.Valid;
+
+import org.opencab.bean.LoginInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -18,7 +22,7 @@ public class LoginController {
 	public static final String LOGINVIEW = "login";
 
 	@RequestMapping(value = LOGIN, method = RequestMethod.POST)
-	public String login() {
+	public String login(@Valid @ModelAttribute("loginInfo") LoginInfo loginInfo) {
 		return HomeController.HOME;
 	}
 

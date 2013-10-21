@@ -13,5 +13,6 @@
 <script
 	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
 <script src="$link.contextPath/resources/js/jquery-ui-timepicker-addon.js"></script>
+<script src="$link.contextPath/resources/js/lib/jquery.i18n.properties-min-1.0.9.js"></script>
 
 </head>

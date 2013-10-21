@@ -116,9 +116,8 @@ public class ContextPassingVelocityAttributeRenderer extends
 		}
 
 		/** {@inheritDoc} */
-		@SuppressWarnings("unchecked")
-		public Enumeration getInitParameterNames() {
-			return new IteratorEnumeration(params.keySet().iterator());
+		public Enumeration<String> getInitParameterNames() {
+			return new IteratorEnumeration<String>(params.keySet().iterator());
 		}
 
 		/** {@inheritDoc} */

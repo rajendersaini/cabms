@@ -14,7 +14,7 @@ body {
 	color: #fff;
 	height: 100%;
 	-webkit-text-size-adjust: 100%;
-	/* Stops Mobile Safari from auto-adjusting font-sizes */
+	
 }
 
 /* Navi */
@@ -126,7 +126,6 @@ body {
 	border-right: none
 }
 
-
 /* footer */
 footer {
 	width: 100%;
@@ -160,3 +159,4 @@ footer a:hover {
 	margin-right: 14px;
 	margin-top: 7px
 }
+

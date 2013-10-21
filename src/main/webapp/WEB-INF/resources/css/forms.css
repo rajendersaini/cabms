@@ -55,23 +55,65 @@ input[type=text]:focus,textarea:focus,input[type=date]:focus,input[type=time]:fo
 	-ms-border-radius: 5px;
 }
 
-input[type=submit] {
-	background: none;
-	padding: 10px;
+input[type="submit"] {
+	line-height: normal;
+	color: #0f6fb2;
+	cursor: pointer;
+	background-color: #0f6fb2;
+	border: 0;
+	margin: 0 0 2px 0;
+	/* GRADIENT CODE */
+	/* fallback */
+	background-color: #0578AF;
+	/* chrome 10+, safari 5.1+ */
+	background-image: -webkit-linear-gradient(#1996D7, #0578AF);
+	/* firefox; multiple color stops */
+	background-image: -moz-linear-gradient(top, #1996D7, #0578AF);
+	/* ie 6+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1996D7',
+		endColorstr='#0578AF');
+	/* ie8 + */
+	-ms-filter:
+		"progid:DXImageTransform.Microsoft.gradient(startColorstr='#1996D7', endColorstr='#0578AF')";
+	/* ie10 */
+	background-image: -ms-linear-gradient(#1996D7, #0578AF);
+	/* The "standard" */
+	background-image: linear-gradient(#1996D7, #0578AF);
+}
+
+input[type="submit"]:hover {
+	border: 0;
+	/* GRADIENT CODE */
+	/* fallback */
+	background-color: #0096D7;
+	/* chrome 10+, safari 5.1+ */
+	background-image: -webkit-linear-gradient(#00AFFA, #0096D7);
+	/* firefox; multiple color stops */
+	background-image: -moz-linear-gradient(top, #00AFFA, #0096D7);
+	/* ie 6+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00AFFA',
+		endColorstr='#0096D7');
+	/* ie8 + */
+	-ms-filter:
+		"progid:DXImageTransform.Microsoft.gradient(startColorstr='#00AFFA', endColorstr='#0096D7')";
+	/* ie10 */
+	background-image: -ms-linear-gradient(#00AFFA, #0096D7);
+	/* The "standard" */
+	background-image: linear-gradient(#00AFFA, #0096D7);
 }
 
 input.error {
 	border: 1px solid #222222;
 }
 
-em.error {
+field_error.error, em.error {
 	background: url("images/unchecked.gif") no-repeat 0px 0px;
 	padding-left: 30px;
 	color: #FF3333;
 	text-shadow: #FF3333 0.1em 0.1em 0.2em;
 }
 
-em.success {
+field_error.error, em.success {
 	background: url("images/chk.gif") no-repeat 0px 0px;
 	padding-left: 16px;
 	color: green;
@@ -85,8 +127,9 @@ em.success {
 .ui-widget-header {
 	border: 0;
 	background: #0f6fb2;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; border :
-	1px solid #ccc; font-size : 20px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	border: 1px solid #ccc;
+	font-size: 20px;
 	color: blue;
 	background-color: #0f6fb2;
 	border: 1px solid #ccc;
@@ -97,7 +140,6 @@ em.success {
 	border: 1px solid #aaaaaa;
 	background: #ffffff none;
 	background-color: #dddddd;
-	
 }
 
 .ui-state-default,.ui-widget-content .ui-state-default {

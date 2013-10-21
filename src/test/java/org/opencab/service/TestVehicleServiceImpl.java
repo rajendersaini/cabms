@@ -35,7 +35,7 @@ public class TestVehicleServiceImpl extends BaseTest {
 		Vehicle veh = new Vehicle();
 		veh.setCapacity(1);
 		veh.setMake("bmw");
-		veh.setModel(new Date("03/03/2012"));
+		veh.setModel(new Date());
 		return veh;
 	}
 

@@ -1,9 +1,13 @@
 
-<form action="/login" method="post" modelAttribute="loginInfo"
+<form action="login" method="post" modelAttribute="loginInfo"
 	id="loginForm">
 
 	<label for="email"> #springMessage("login.email") </label> <input
-		id="email" name="email" /> <br>
-	<label for="password"> #springMessage("login.password") </label> <input
-		name="password" id="password" />
+		id="email" name="email" /> <br> <label for="password"><br>
+		#springMessage("login.password") </label> <input name="password" id="password" />
+		<br>
+	<input type="submit" value="#springMessage('login.title')"
+		name="#springMessage('login.title')" />
 </form>
+
+<script src="$link.contextPath/resources/js/login.js"></script>
