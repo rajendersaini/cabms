@@ -113,7 +113,7 @@ field_error.error, em.error {
 	text-shadow: #FF3333 0.1em 0.1em 0.2em;
 }
 
-field_error.error, em.success {
+field_error.success, em.success {
 	background: url("images/chk.gif") no-repeat 0px 0px;
 	padding-left: 16px;
 	color: green;

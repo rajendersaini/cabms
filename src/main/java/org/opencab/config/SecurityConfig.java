@@ -43,7 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.headers().disable().authorizeRequests()
 				.antMatchers(LoginController.AUTHLOGIN,
 						ResourceConfig.RESOURCE_PATH_MATCHER).permitAll()
-				.anyRequest().authenticated().and().formLogin()
+				.anyRequest().permitAll().and().formLogin()
 				.loginPage(LoginController.AUTHLOGIN);
 
 	}
