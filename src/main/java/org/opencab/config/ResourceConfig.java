@@ -2,9 +2,13 @@ package org.opencab.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.Ordered;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
+@Configuration
+@PropertySource("classpath:app.properties")
 public class ResourceConfig {
 
 	private static final Logger logger = LoggerFactory

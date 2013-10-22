@@ -33,16 +33,39 @@ public class User extends AbstractEntity {
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
 	private Profile profile;
 
+	@NotNull
+	@OneToMany(orphanRemoval = true, cascade=CascadeType.ALL)
+	@JoinColumn(name = "cabuser_id")
+	private List<Role> roles;
+
+	public Profile getProfile() {
+		return profile;
+	}
+
+	public void setProfile(Profile profile) {
+		this.profile = profile;
+	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+
 	public User() {
 	}
 
 	public User(String firstName, String middleName, String lastName,
-			List<UserAddress> addresses, Profile userProfile) {
+			List<UserAddress> addresses, Profile userProfile, List<Role> roles) {
 		this.firstName = firstName;
 		this.middleName = middleName;
 		this.lastName = lastName;
 		this.addresses = addresses;
 		this.profile = userProfile;
+		this.roles = roles;
+
 	}
 
 	public String getFirstName() {

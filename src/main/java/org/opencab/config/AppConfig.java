@@ -13,7 +13,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.web.servlet.ViewResolver;
@@ -31,7 +30,6 @@ import org.springframework.web.servlet.view.velocity.VelocityViewResolver;
 @EnableWebMvc
 @ComponentScan("org.opencab")
 @Profile("prod")
-@PropertySource("classpath:app.properties")
 public class AppConfig extends WebMvcConfigurerAdapter implements
 		ApplicationContextAware {
 

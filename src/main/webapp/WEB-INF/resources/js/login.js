@@ -1,54 +1,49 @@
-$(document)
-		.ready(
-				function() {
-					$("#loginForm")
-							.validate(
-									{
-										rules : {
-											email : {
-												required : true,
-												email : true
-											},
-											password : {
-												minlength : 5
-											},
-											password_confirm : {
-												minlength : 5,
-												equalTo : "#password"
-											}
+$(document).ready(function() {
+	$("#loginForm").validate({
+		rules : {
+			email : {
+				required : true,
+				email : true
+			},
+			password : {
+				required : true,
+				minlength : 5
+			},
+			password_confirm : {
+				minlength : 5,
+				equalTo : "#password"
+			}
 
-										},
-										messages : {
-											email : {
-												required : jQuery.i18n
-														.prop("login.email.required"),
-												email : jQuery.i18n
-														.prop("login.email.valid")
-											},
+		},
+		messages : {
+			email : {
+				required : jQuery.i18n.prop("login.email.required"),
+				email : jQuery.i18n.prop("login.email.valid")
+			},
 
-											password : {
-												minlength : jQuery.i18n
-														.prop("login.password.minlength")
-											}
-										},
-										errorElement : "field_error",
+			password : {
+				minlength : jQuery.i18n.prop("login.password.minlength"),
+				required : jQuery.i18n.prop("login.password.minlength"),
 
-										success : function(label) {
-											label.addClass("success").text(
-													"Ok!");
-										},
-										error: function (label) {
-											label.addClass("error");
-										},
-										highlight : function(element, errorClass) {
-											var ele = 'field_error[for=' + element.id + ']';
-											$(ele).attr('class', 'error');
-										},
-										focusCleanup : true
-										
-									});
+			}
+		},
+		errorElement : "field_error",
 
-				});
+		success : function(label) {
+			label.addClass("success").text("Ok!");
+		},
+		error : function(label) {
+			label.addClass("error");
+		},
+		highlight : function(element, errorClass) {
+			var ele = 'field_error[for=' + element.id + ']';
+			$(ele).attr('class', 'error');
+		},
+		focusCleanup : true
+
+	});
+
+});
 
 /*
  * $().ready(function() {

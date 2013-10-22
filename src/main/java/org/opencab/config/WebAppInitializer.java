@@ -3,6 +3,8 @@ package org.opencab.config;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -10,12 +12,21 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 public class WebAppInitializer extends
 		AbstractAnnotationConfigDispatcherServletInitializer {
 
+	private static final Logger logger = LoggerFactory
+			.getLogger(WebAppInitializer.class);
+
+	private static final String ACITVE_PROFILE = "spring.profiles.active";
+
 	@Override
 	public void onStartup(ServletContext servletContext)
 			throws ServletException {
-		servletContext.setInitParameter("spring.profiles.active", "prod");
+
+		logger.info("Setting active profile as - {0}",
+				"prod");
+		servletContext.setInitParameter(ACITVE_PROFILE, "prod");
 		super.onStartup(servletContext);
 	}
+
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
@@ -27,12 +38,10 @@ public class WebAppInitializer extends
 		return new String[] { "/*" };
 	}
 
-	
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		return new Class<?>[] { SecurityConfig.class };
 
 	}
-
 
 }

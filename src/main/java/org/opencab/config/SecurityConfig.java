@@ -16,7 +16,7 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationEn
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	private static final Logger logger = LoggerFactory
-			.getLogger(JndiDataConfig.class);
+			.getLogger(SecurityConfig.class);
 
 	@Override
 	protected void registerAuthentication(AuthenticationManagerBuilder auth)
@@ -43,7 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.headers().disable().authorizeRequests()
 				.antMatchers(LoginController.AUTHLOGIN,
 						ResourceConfig.RESOURCE_PATH_MATCHER).permitAll()
-				.anyRequest().permitAll().and().formLogin()
+				.anyRequest().authenticated().and().formLogin()
 				.loginPage(LoginController.AUTHLOGIN);
 
 	}

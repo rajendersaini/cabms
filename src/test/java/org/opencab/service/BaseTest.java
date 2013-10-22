@@ -1,6 +1,8 @@
 package org.opencab.service;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Assert;
 import org.junit.runner.RunWith;
@@ -9,16 +11,20 @@ import org.opencab.config.JUnit4ClassRunner;
 import org.opencab.config.StandaloneDataConfig;
 import org.opencab.db.model.AbstractEntity;
 import org.opencab.db.model.Profile;
+import org.opencab.db.model.Role;
 import org.opencab.db.model.User;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.support.AnnotationConfigContextLoader;
+import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
 
 @RunWith(JUnit4ClassRunner.class)
 @ActiveProfiles("test")
-@ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = {
-		StandaloneDataConfig.class, BeanConfig.class })
+@ContextConfiguration(classes = { StandaloneDataConfig.class, BeanConfig.class })
+@WebAppConfiguration
 public abstract class BaseTest {
+	
+	private MockMvc mockMvc;
 
 	protected void assertCreate(AbstractEntity entity) {
 		Assert.assertNotNull(entity);
@@ -27,12 +33,14 @@ public abstract class BaseTest {
 
 	protected User getUser() {
 
-		
 		Profile profile = new Profile("email", "passwordhash", 1, false,
 				new Date(), null);
-		User user  = new User("rajender", "singh", "saini", null, profile);
+		Role role = new Role("ADMIN");
+		List<Role> roles = new ArrayList<Role>();
+		roles.add(role);
+		User user = new User("rajender", "singh", "saini", null, profile,roles);
 		profile.setUser(user);
-
+        role.setUser(user);
 		return user;
 	}
 }
