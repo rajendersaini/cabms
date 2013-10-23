@@ -15,13 +15,16 @@ import org.opencab.db.model.Role;
 import org.opencab.db.model.User;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
 
 @RunWith(JUnit4ClassRunner.class)
 @ActiveProfiles("test")
 @ContextConfiguration(classes = { StandaloneDataConfig.class, BeanConfig.class })
+@WebAppConfiguration
 public abstract class BaseTest {
-
 	
+	private MockMvc mockMvc;
 
 	protected void assertCreate(AbstractEntity entity) {
 		Assert.assertNotNull(entity);
@@ -35,9 +38,9 @@ public abstract class BaseTest {
 		Role role = new Role("ADMIN");
 		List<Role> roles = new ArrayList<Role>();
 		roles.add(role);
-		User user = new User("rajender", "singh", "saini", null, profile, roles);
+		User user = new User("rajender", "singh", "saini", null, profile,roles);
 		profile.setUser(user);
-		role.setUser(user);
+        role.setUser(user);
 		return user;
 	}
 }
