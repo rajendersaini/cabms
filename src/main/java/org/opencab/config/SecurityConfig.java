@@ -1,5 +1,6 @@
 package org.opencab.config;
 
+import org.opencab.service.LoginServiceImpl;
 import org.opencab.web.controller.LoginController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,9 +24,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			throws Exception {
 
 		logger.debug("Registing auth provider");
-		auth.inMemoryAuthentication().withUser("user").password("password")
-				.roles("USER").and().withUser("admin").password("password")
-				.roles("USER", "ADMIN");
+
+		auth.userDetailsService(new LoginServiceImpl());
+		// auth.inMemoryAuthentication().withUser("user").password("password")
+		// .roles("USER").and().withUser("admin").password("password")
+		// .roles("USER", "ADMIN");
 	}
 
 	@Bean
@@ -40,7 +43,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		logger.debug("configure http security");
 
-		http.headers().disable().authorizeRequests()
+		http.headers()
+				.disable()
+				.authorizeRequests()
 				.antMatchers(LoginController.AUTHLOGIN,
 						ResourceConfig.RESOURCE_PATH_MATCHER).permitAll()
 				.anyRequest().authenticated().and().formLogin()
