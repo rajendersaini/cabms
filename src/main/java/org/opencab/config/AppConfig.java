@@ -84,7 +84,8 @@ public class AppConfig extends WebMvcConfigurerAdapter implements
 		return clr;
 	}
 
-	
+	//TODO:Implement multiple views
+	//http://spring.io/blog/2013/06/03/content-negotiation-using-views/
 	@Bean
 	public ViewResolver viewResolver() {
 
